@@ -1,7 +1,23 @@
 import { Col, Row, Input, Button, Select, Tag } from 'antd';
 import Todo from '../Todo';
+import TodoListSlice from './TodoSlice';
+
 
 export default function TodoList() {
+  const dispatch = useDispatch();
+
+  const handleAddButtonClick = () => {
+    dispatch (
+      TodoListSlice.actions.addTodo({
+        id: uuidv4(),
+        name: todoName,
+        priority: prioriry,
+        completed: false
+      })
+    )
+  }
+
+
   return (
     <Row style={{ height: 'calc(100% - 40px)' }}>
       <Col span={24} style={{ height: 'calc(100% - 40px)', overflowY: 'auto' }}>

@@ -1,8 +1,19 @@
 import { Col, Row, Input, Typography, Radio, Select, Tag } from 'antd';
-
+import { filtersSlice } from './FilterSlice';
+import { useDispatch } from 'react-redux';
 const { Search } = Input;
 
 export default function Filters() {
+  const dispatch = useDispatch();
+  
+  const handleSearchTextChange = (e) => {
+    setSearchText(e.target.value);
+    dispatch(filtersSlice.actions.searchFilerChange(e.target.value));
+  }
+
+
+
+
   return (
     <Row justify='center'>
       <Col span={24}>
